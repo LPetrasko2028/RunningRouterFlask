@@ -1,2 +1,2 @@
-bind = "0.0.0.0:8000"
+bind = "localhost:5000"
 workers = 2

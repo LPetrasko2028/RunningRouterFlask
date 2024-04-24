@@ -2,3 +2,4 @@
 __pycache__
 runningRouteApp\__pycache__
 *.txt
+*.pyc
