@@ -177,7 +177,7 @@ def bundlePythonResults():
     newNeeded = False
     exisitingList = {}
     startid=0
-    print(data)
+    #print(data)
     lat = data["lat"]
     lon = data["lon"]
 

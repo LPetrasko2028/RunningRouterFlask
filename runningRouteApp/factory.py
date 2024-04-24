@@ -4,11 +4,13 @@ from bson import json_util, ObjectId
 from datetime import datetime
 from flask import Flask, render_template
 from configparser import ConfigParser
-
+import os
+from dotenv import load_dotenv
 
 
 from .runnerAPI import runnerBP as runner_bp
 
+load_dotenv()
 class MongoJsonEncoder(JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
@@ -24,6 +26,6 @@ def create_app():
     app.register_blueprint(runner_bp)
     configurer = ConfigParser()
     configurer.read('pymongo_ini')
-    app.config['MONGO_URI'] = configurer['PROD']['DB_URI']
+    app.config['MONGO_URI'] = os.getenv("URI") #configurer['PROD']['DB_URI']
 
     return app
