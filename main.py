@@ -9,3 +9,6 @@ if __name__ == "__main__":
     app = create_app()
     app.config['DEBUG'] = True
     app.run()
+    
+    
+app = create_app()
