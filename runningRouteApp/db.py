@@ -62,11 +62,12 @@ def updateAdjListFull(email, list, center, radius, coordArray, startid,  directi
         listSize = sys.getsizeof(list)
         numExtraInfo = int(ceil(listSize / 100000))
         list = dumps(list)
+        """
         newList = []
         if (numExtraInfo > 1):
             newList = [ list[i:i+int(listSize/numExtraInfo)] for i in range(0, numExtraInfo, int(listSize/numExtraInfo)) ]
             print(len(newList))
-            list = dumps(newList[0])
+            list = dumps(newList[0])"""
             
         response = db.adjacencyLists.update_one(
             {"email": email},
@@ -79,7 +80,7 @@ def updateAdjListFull(email, list, center, radius, coordArray, startid,  directi
                       "direction": direction}},
             upsert = True
         )
-
+        """
         if (numExtraInfo > 1):
             for index, element in enumerate(newList[1:]):
                 responseExtra = db.extraInfo.update_one(
@@ -93,7 +94,7 @@ def updateAdjListFull(email, list, center, radius, coordArray, startid,  directi
                         }
                     },
                     upsert = True
-                )
+                )"""
         return response
     except Exception as e:
         print("Error: ", e)
