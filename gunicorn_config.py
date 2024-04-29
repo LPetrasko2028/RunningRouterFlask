@@ -1,4 +1,4 @@
 bind = "0.0.0.0:5000"
 workers = 2
-timeout = 120
-TimeoutError = 120
+timeout = 12000
+TimeoutError = 12000
